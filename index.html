@@ -12,7 +12,6 @@
   --gold: #c8a66c;
   --cream: #eee4d3;
   --muted: #b9aa94;
-  --dark: #15110e;
 }
 
 * {
@@ -27,24 +26,22 @@ body {
   margin: 0;
   color: var(--cream);
   font-family: Georgia, "Times New Roman", serif;
-  background: #18120d;
+  background: #100d0a;
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
+#background {
   position: fixed;
   inset: 0;
-  background: url("background.png.png") center center / cover no-repeat;
   z-index: -2;
+  background: url("background.png.png") center / cover no-repeat;
 }
 
-body::after {
-  content: "";
+#background-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.28);
   z-index: -1;
+  background: rgba(0,0,0,.75);
 }
 
 button, a {
@@ -57,25 +54,25 @@ button {
 }
 
 button:focus-visible, a:focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 2px solid var(--gold);
   outline-offset: 4px;
 }
 
 .page {
   display: none;
   min-height: 100vh;
-  padding: 55px 22px 130px;
+  padding: 45px 22px 100px;
 }
 
 .page.active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: appear .65s ease;
+  animation: appear .5s ease;
 }
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -87,7 +84,7 @@ button:focus-visible, a:focus-visible {
   width: 100%;
   max-width: 850px;
   padding: 45px;
-  background: rgba(20,15,11,.89);
+  background: rgba(20,15,11,.94);
   border: 1px solid rgba(200,166,108,.65);
   box-shadow: 0 20px 70px rgba(0,0,0,.6);
   text-align: center;
@@ -102,7 +99,7 @@ button:focus-visible, a:focus-visible {
 }
 
 h1 {
-  font-size: clamp(30px, 5vw, 57px);
+  font-size: clamp(30px,5vw,57px);
   font-weight: normal;
   letter-spacing: 2px;
   line-height: 1.2;
@@ -110,9 +107,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(25px, 4vw, 40px);
+  font-size: clamp(25px,4vw,40px);
   font-weight: normal;
-  margin: 12px 0 20px;
 }
 
 p {
@@ -133,8 +129,7 @@ p {
 }
 
 .disclaimer h1,
-.disclaimer .eyebrow,
-.disclaimer .actions {
+.disclaimer .eyebrow {
   text-align: center;
 }
 
@@ -145,7 +140,7 @@ p {
 .btn {
   display: inline-block;
   padding: 16px 25px;
-  background: #c8a66c;
+  background: var(--gold);
   color: #19120b;
   border: 1px solid var(--gold);
   font-size: 12px;
@@ -162,12 +157,12 @@ p {
 }
 
 .btn.secondary {
-  background: rgba(20,15,11,.92);
+  background: #18120e;
   color: var(--gold);
 }
 
 .actions {
-  margin-top: 30px;
+  margin: 30px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -176,11 +171,11 @@ p {
 
 .page-heading {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   text-align: center;
   padding: 28px 20px;
   margin-bottom: 30px;
-  background: rgba(18,13,9,.86);
+  background: rgba(18,13,9,.90);
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
 }
@@ -190,25 +185,32 @@ p {
   margin: 8px 0;
 }
 
+/* NEWSPAPER */
+
 .newspaper {
   width: 100%;
-  max-width: 1000px;
-  padding: 10px;
+  max-width: 1300px;
+  padding: 8px;
   background: #18130e;
   border: 1px solid var(--gold);
   box-shadow: 0 15px 60px #0009;
+  text-align: center;
 }
 
 .newspaper img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
+  margin: auto;
   cursor: zoom-in;
 }
 
+/* MAIN MENU */
+
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 20px;
   width: 100%;
   max-width: 950px;
@@ -219,7 +221,7 @@ p {
   padding: 30px 20px;
   color: var(--cream);
   text-align: left;
-  background: rgba(23,17,12,.87);
+  background: rgba(23,17,12,.94);
   border: 1px solid #8c7049;
   box-shadow: 0 10px 30px #0005;
   transition: .25s;
@@ -228,7 +230,7 @@ p {
 .menu-card:hover {
   transform: translateY(-5px);
   border-color: #e4c58f;
-  background: rgba(46,32,20,.96);
+  background: #2e2014;
 }
 
 .menu-number {
@@ -256,81 +258,93 @@ p {
   letter-spacing: 3px;
 }
 
+/* LARGE ORIGINAL DOCUMENTS */
+
 .files-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .file-card {
-  background: rgba(22,16,12,.95);
+  width: 100%;
+  background: rgba(18,14,11,.97);
   border: 1px solid #816847;
-  padding: 18px;
+  padding: 22px;
   box-shadow: 0 12px 30px #0006;
 }
 
 .file-card h3 {
-  font-size: 19px;
+  font-size: 25px;
   font-weight: normal;
-  margin: 8px 0 18px;
+  margin: 10px 0 25px;
+  text-align: center;
 }
 
 .file-number {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--gold);
   letter-spacing: 3px;
+  text-align: center;
 }
 
 .image-button {
   display: block;
   width: 100%;
   padding: 0;
-  background: #100e0c;
+  background: transparent;
   border: 0;
   cursor: zoom-in;
 }
 
 .image-button img {
   display: block;
-  width: 100%;
-  height: 340px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0 auto;
   object-fit: contain;
+  filter: none;
+  image-rendering: auto;
 }
 
 .file-image + .file-image {
-  margin-top: 22px;
+  margin-top: 35px;
   border-top: 1px solid #66543a;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .file-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 18px;
+  margin-top: 20px;
 }
 
 .text-link {
-  background: none;
-  border: none;
+  background: #211810;
+  border: 1px solid #8c7049;
   color: var(--gold);
-  padding: 5px 0;
+  padding: 12px 18px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
 }
 
 .text-link:hover {
-  text-decoration: underline;
+  background: #3b2b1b;
 }
 
 .image-error {
   padding: 20px;
   color: #e7b4a1;
   font-size: 14px;
+  text-align: center;
 }
 
 .footer-note {
@@ -343,7 +357,7 @@ p {
   background: #15100ccc;
 }
 
-/* FULL RESOLUTION DOCUMENT VIEWER */
+/* FULL RESOLUTION VIEWER */
 
 #viewer {
   display: none;
@@ -413,75 +427,41 @@ p {
   margin: 0 auto;
   user-select: none;
   -webkit-user-drag: none;
+  filter: none;
 }
 
-/* SOUNDTRACK */
+/* AUDIO ONLY — NO YOUTUBE */
 
-#music-box {
+#music-button {
   display: none;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 20px;
+  right: 20px;
   z-index: 100;
-  width: 220px;
-  background: rgba(20,15,11,.97);
-  border: 1px solid #8c7049;
-  box-shadow: 0 5px 25px #0008;
-}
-
-.music-label {
-  padding: 10px;
-  font-size: 10px;
+  background: rgba(15,11,8,.96);
+  border: 1px solid var(--gold);
   color: var(--gold);
+  padding: 13px 20px;
+  font-size: 11px;
   letter-spacing: 2px;
-  text-align: center;
+  box-shadow: 0 5px 20px #0008;
+  border-radius: 3px;
 }
 
-#music-player {
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-#music-player iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.music-controls {
-  display: flex;
-}
-
-.music-controls button {
-  flex: 1;
-  padding: 10px;
-  background: #211810;
-  color: var(--cream);
-  border: 0;
-  font-size: 12px;
-}
-
-#music-box.collapsed {
-  width: auto;
-}
-
-#music-box.collapsed #music-player,
-#music-box.collapsed .music-label,
-#music-box.collapsed #music-toggle {
-  display: none;
+#music-button:hover {
+  background: #302316;
 }
 
 @media (max-width: 650px) {
   .page {
-    padding: 25px 14px 110px;
+    padding: 25px 10px 90px;
   }
 
   .panel {
     padding: 28px 20px;
   }
 
-  .menu-grid,
-  .files-grid {
+  .menu-grid {
     grid-template-columns: 1fr;
   }
 
@@ -489,9 +469,12 @@ p {
     min-height: 155px;
   }
 
-  .image-button img {
-    height: auto;
-    max-height: 440px;
+  .file-card {
+    padding: 10px;
+  }
+
+  .file-card h3 {
+    font-size: 21px;
   }
 
   .eyebrow {
@@ -503,10 +486,10 @@ p {
     padding: 14px 18px;
   }
 
-  #music-box {
+  #music-button {
     right: 10px;
     bottom: 10px;
-    width: 200px;
+    padding: 11px 14px;
   }
 }
 
@@ -521,6 +504,19 @@ p {
 </head>
 
 <body>
+
+<div id="background"></div>
+<div id="background-overlay"></div>
+
+<!-- LOCAL AUDIO FILE -->
+
+<audio id="soundtrack" loop preload="none">
+  <source src="soundtrack.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-button" onclick="toggleMusic()">
+  ♫ MUSIC: OFF
+</button>
 
 <!-- DISCLAIMER -->
 
@@ -567,6 +563,11 @@ p {
 
   <div class="actions">
     <button class="btn secondary"
+      onclick="showPage('disclaimer')">
+      ← Back
+    </button>
+
+    <button class="btn secondary"
       onclick="openViewer('Picture1.png','Newspaper Article')">
       Enlarge Newspaper
     </button>
@@ -578,15 +579,17 @@ p {
   </div>
 </section>
 
-<!-- MAIN INVESTIGATION MENU -->
+<!-- MAIN MENU -->
 
 <section id="menu" class="page">
   <div class="page-heading">
     <div class="eyebrow">Confidential case archive</div>
     <h1>The Investigation</h1>
     <div class="gold-line"></div>
-    <p>Examine the documents. Question the accounts.<br>
-    Draw your own conclusions.</p>
+    <p>
+      Examine the documents. Question the accounts.<br>
+      Draw your own conclusions.
+    </p>
   </div>
 
   <div class="menu-grid">
@@ -645,12 +648,15 @@ p {
     <h1>Initial Investigation</h1>
     <p>Crime scene, police findings and autopsy.</p>
   </div>
+
   <div class="actions" style="margin:0 0 25px">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
     </button>
   </div>
+
   <div id="initial-files" class="files-grid"></div>
+
   <div class="actions">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
@@ -664,12 +670,15 @@ p {
     <h1>Suspect Profiles</h1>
     <p>Individuals connected to the case.</p>
   </div>
+
   <div class="actions" style="margin:0 0 25px">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
     </button>
   </div>
+
   <div id="suspects-files" class="files-grid"></div>
+
   <div class="actions">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
@@ -683,12 +692,15 @@ p {
     <h1>Interviews</h1>
     <p>Recorded statements and interview transcripts.</p>
   </div>
+
   <div class="actions" style="margin:0 0 25px">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
     </button>
   </div>
+
   <div id="interviews-files" class="files-grid"></div>
+
   <div class="actions">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
@@ -702,12 +714,15 @@ p {
     <h1>Evidence Archive</h1>
     <p>Collected documents, photographs and exhibits.</p>
   </div>
+
   <div class="actions" style="margin:0 0 25px">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
     </button>
   </div>
+
   <div id="evidence-files" class="files-grid"></div>
+
   <div class="actions">
     <button class="btn secondary" onclick="showPage('menu')">
       ← Back to Investigation
@@ -715,21 +730,27 @@ p {
   </div>
 </section>
 
-<!-- IMAGE VIEWER -->
+<!-- FULL RESOLUTION IMAGE VIEWER -->
 
 <div id="viewer" role="dialog"
   aria-modal="true" aria-label="Document viewer">
 
   <div class="viewer-toolbar">
     <div id="viewer-title"></div>
+
     <button onclick="changeZoom(-.25)">−</button>
     <span id="zoom-level">100%</span>
     <button onclick="changeZoom(.25)">+</button>
+
     <button onclick="fitImage()">Fit</button>
     <button onclick="originalSize()">Original Size</button>
+
     <a id="original-link" target="_blank"
       rel="noopener noreferrer">Open Original ↗</a>
-    <button id="close-viewer" onclick="closeViewer()">✕ Close</button>
+
+    <button id="close-viewer" onclick="closeViewer()">
+      ✕ Close
+    </button>
   </div>
 
   <div id="viewer-scroll">
@@ -737,24 +758,9 @@ p {
   </div>
 </div>
 
-<!-- SOUNDTRACK -->
-
-<div id="music-box">
-  <div class="music-label">INVESTIGATION SOUNDTRACK</div>
-  <div id="music-player"></div>
-  <div class="music-controls">
-    <button id="music-toggle" onclick="toggleMusic()">
-      Pause / Play
-    </button>
-    <button id="music-minimize" onclick="minimizeMusic()">
-      Minimize
-    </button>
-  </div>
-</div>
-
 <script>
 
-/* ALL 31 ORIGINAL IMAGES */
+/* ORIGINAL FILES */
 
 const files = {
 
@@ -799,11 +805,12 @@ const files = {
   ]
 };
 
-/* CREATE THE DOCUMENT CARDS */
+/* CREATE DOCUMENTS */
 
 Object.entries(files).forEach(([section, entries]) => {
 
-  const container = document.getElementById(section + "-files");
+  const container =
+    document.getElementById(section + "-files");
 
   entries.forEach(([title, ...images], index) => {
 
@@ -813,7 +820,7 @@ Object.entries(files).forEach(([section, entries]) => {
     const number = document.createElement("div");
     number.className = "file-number";
     number.textContent =
-      "DOCUMENT " + String(index + 1).padStart(2, "0");
+      "DOCUMENT " + String(index + 1).padStart(2,"0");
 
     const heading = document.createElement("h3");
     heading.textContent = title;
@@ -831,35 +838,42 @@ Object.entries(files).forEach(([section, entries]) => {
 
       const imageButton = document.createElement("button");
       imageButton.className = "image-button";
-      imageButton.setAttribute("aria-label", "Enlarge " + label);
+      imageButton.setAttribute(
+        "aria-label", "Enlarge " + label
+      );
 
       const img = document.createElement("img");
       img.src = src;
       img.alt = label;
       img.loading = "lazy";
-      img.decoding = "async";
 
       img.onerror = function() {
+
         const error = document.createElement("div");
         error.className = "image-error";
         error.textContent =
           "File unavailable: " + src +
           ". Please check its filename.";
+
         imageButton.replaceWith(error);
       };
 
       imageButton.appendChild(img);
-      imageButton.onclick = () => openViewer(src, label);
+      imageButton.onclick =
+        () => openViewer(src, label);
 
       const controls = document.createElement("div");
       controls.className = "file-controls";
 
       const enlarge = document.createElement("button");
       enlarge.className = "text-link";
+
       enlarge.textContent = images.length > 1
         ? "Enlarge Page " + (pageIndex + 1)
         : "Enlarge Document";
-      enlarge.onclick = () => openViewer(src, label);
+
+      enlarge.onclick =
+        () => openViewer(src, label);
 
       const original = document.createElement("a");
       original.className = "text-link";
@@ -914,19 +928,83 @@ function showPage(id, updateHistory = true) {
   }
 }
 
-history.replaceState({ page: "disclaimer" }, "", location.pathname);
+history.replaceState(
+  { page: "disclaimer" },
+  "",
+  location.pathname
+);
 
 window.addEventListener("popstate", event => {
   showPage(event.state?.page || "disclaimer", false);
 });
 
 function begin() {
+
   accepted = true;
-  showPage("newspaper");
+
   startMusic();
+
+  showPage("newspaper");
 }
 
-/* FULL RESOLUTION IMAGE VIEWER */
+/* AUDIO — CONTINUOUS LOOP */
+
+const soundtrack = document.getElementById("soundtrack");
+const musicButton = document.getElementById("music-button");
+
+let musicInitialized = false;
+
+soundtrack.volume = .35;
+soundtrack.loop = true;
+
+function updateMusicButton() {
+
+  musicButton.textContent = soundtrack.paused
+    ? "♫ MUSIC: OFF"
+    : "♫ MUSIC: ON";
+
+  musicButton.setAttribute(
+    "aria-pressed",
+    String(!soundtrack.paused)
+  );
+}
+
+function startMusic() {
+
+  musicButton.style.display = "block";
+
+  if (musicInitialized) return;
+
+  musicInitialized = true;
+
+  soundtrack.play().catch(() => {
+    musicButton.textContent = "♫ PLAY MUSIC";
+  });
+}
+
+function toggleMusic() {
+
+  if (soundtrack.paused) {
+
+    soundtrack.play().catch(() => {
+      musicButton.textContent = "♫ PLAY MUSIC";
+    });
+
+  } else {
+
+    soundtrack.pause();
+
+  }
+}
+
+soundtrack.addEventListener("play", updateMusicButton);
+soundtrack.addEventListener("pause", updateMusicButton);
+
+soundtrack.addEventListener("error", () => {
+  musicButton.textContent = "MUSIC UNAVAILABLE";
+});
+
+/* IMAGE VIEWER */
 
 const viewer = document.getElementById("viewer");
 const viewerImage = document.getElementById("viewer-image");
@@ -966,6 +1044,7 @@ function fitImage() {
   );
 
   zoom = 1;
+
   applyZoom();
 
   viewerScroll.scrollTop = 0;
@@ -973,22 +1052,38 @@ function fitImage() {
 }
 
 function changeZoom(amount) {
-  zoom = Math.min(6, Math.max(.25, zoom + amount));
+
+  const maximum = Math.max(
+    6,
+    viewerImage.naturalWidth / Math.max(1,fitWidth) * 2
+  );
+
+  zoom = Math.min(
+    maximum,
+    Math.max(.25,zoom + amount)
+  );
+
   applyZoom();
 }
 
 function originalSize() {
+
   if (!fitWidth || !viewerImage.naturalWidth) return;
+
   zoom = viewerImage.naturalWidth / fitWidth;
+
   applyZoom();
 }
 
 function applyZoom() {
+
   viewerImage.style.width = (fitWidth * zoom) + "px";
 
   const scale = viewerImage.naturalWidth
-    ? Math.round(fitWidth * zoom /
-        viewerImage.naturalWidth * 100)
+    ? Math.round(
+        fitWidth * zoom /
+        viewerImage.naturalWidth * 100
+      )
     : 100;
 
   document.getElementById("zoom-level").textContent =
@@ -1012,12 +1107,18 @@ document.addEventListener("keydown", event => {
   if (!viewer.classList.contains("open")) return;
 
   if (event.key === "Escape") closeViewer();
-  if (event.key === "+" || event.key === "=") changeZoom(.25);
-  if (event.key === "-") changeZoom(-.25);
+
+  if (event.key === "+" || event.key === "=") {
+    changeZoom(.25);
+  }
+
+  if (event.key === "-") {
+    changeZoom(-.25);
+  }
 
 });
 
-/* DRAG TO EXPLORE ENLARGED DOCUMENTS */
+/* DRAG TO EXPLORE DOCUMENTS */
 
 let dragging = false;
 let startX, startY, scrollLeft, scrollTop;
@@ -1027,6 +1128,7 @@ viewerScroll.addEventListener("mousedown", event => {
   if (event.button !== 0) return;
 
   dragging = true;
+
   viewerScroll.classList.add("dragging");
 
   startX = event.clientX;
@@ -1035,7 +1137,6 @@ viewerScroll.addEventListener("mousedown", event => {
   scrollTop = viewerScroll.scrollTop;
 
   event.preventDefault();
-
 });
 
 window.addEventListener("mousemove", event => {
@@ -1047,131 +1148,14 @@ window.addEventListener("mousemove", event => {
 
   viewerScroll.scrollTop =
     scrollTop - (event.clientY - startY);
-
 });
 
 window.addEventListener("mouseup", () => {
+
   dragging = false;
+
   viewerScroll.classList.remove("dragging");
 });
-
-/* YOUTUBE SOUNDTRACK — LOOP ENABLED */
-
-let player;
-let musicStarted = false;
-let apiReady = false;
-
-const musicBox = document.getElementById("music-box");
-
-function onYouTubeIframeAPIReady() {
-  apiReady = true;
-  if (musicStarted) createPlayer();
-}
-
-function startMusic() {
-
-  musicBox.style.display = "block";
-
-  if (musicStarted) return;
-
-  musicStarted = true;
-
-  if (apiReady) createPlayer();
-}
-
-function createPlayer() {
-
-  if (player || !window.YT || !YT.Player) return;
-
-  player = new YT.Player("music-player", {
-
-    videoId: "ZkcnW1ZzHJI",
-
-    playerVars: {
-      autoplay: 1,
-      loop: 1,
-      playlist: "ZkcnW1ZzHJI",
-      playsinline: 1,
-      controls: 1,
-      rel: 0,
-      origin: location.origin
-    },
-
-    events: {
-
-      onReady: function(event) {
-        event.target.setVolume(35);
-        event.target.playVideo();
-      },
-
-      onStateChange: function(event) {
-
-        if (event.data === YT.PlayerState.ENDED) {
-          event.target.seekTo(0, true);
-          event.target.playVideo();
-        }
-
-        document.getElementById("music-toggle").textContent =
-          event.data === YT.PlayerState.PLAYING
-          ? "Pause Music"
-          : "Play Music";
-      },
-
-      onError: function() {
-        document.getElementById("music-toggle").textContent =
-          "Open Soundtrack";
-      }
-    }
-  });
-}
-
-function toggleMusic() {
-
-  if (!player || typeof player.getPlayerState !== "function") {
-    window.open(
-      "https://youtu.be/ZkcnW1ZzHJI",
-      "_blank",
-      "noopener"
-    );
-    return;
-  }
-
-  if (
-    document.getElementById("music-toggle").textContent
-      === "Open Soundtrack"
-  ) {
-    window.open(
-      "https://youtu.be/ZkcnW1ZzHJI",
-      "_blank",
-      "noopener"
-    );
-    return;
-  }
-
-  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-    player.pauseVideo();
-  } else {
-    player.playVideo();
-  }
-}
-
-function minimizeMusic() {
-
-  const collapsed = musicBox.classList.toggle("collapsed");
-
-  document.getElementById("music-minimize").textContent =
-    collapsed ? "♫ Soundtrack" : "Minimize";
-
-  // Pause when hiding the video player.
-  if (collapsed && player &&
-      typeof player.pauseVideo === "function") {
-    player.pauseVideo();
-  }
-}
-
-const youtubeScript = document.createElement("script");
-youtubeScript.src = "https://www.youtube.com/iframe_api";
-document.head.appendChild(youtubeScript);
 
 </script>
 
