@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>The Murder of Joseph Maroun | Investigation</title>
+
+<style>
+:root {
+  --gold: #c8a66c;
+  --cream: #eee4d3;
+  --muted: #b9aa94;
+  --dark: #15110e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  background: #18120d;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("background.png.png") center center / cover no-repeat;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.28);
+  z-index: -1;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 55px 22px 130px;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: appear .65s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.centered {
+  justify-content: center;
+}
+
+.panel {
+  width: 100%;
+  max-width: 850px;
+  padding: 45px;
+  background: rgba(20,15,11,.89);
+  border: 1px solid rgba(200,166,108,.65);
+  box-shadow: 0 20px 70px rgba(0,0,0,.6);
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 57px);
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin: 12px 0 22px;
+}
+
+h2 {
+  font-size: clamp(25px, 4vw, 40px);
+  font-weight: normal;
+  margin: 12px 0 20px;
+}
+
+p {
+  line-height: 1.85;
+  font-size: 17px;
+}
+
+.gold-line {
+  height: 1px;
+  width: 85px;
+  background: var(--gold);
+  margin: 25px auto;
+}
+
+.disclaimer {
+  max-width: 700px;
+  text-align: left;
+}
+
+.disclaimer h1,
+.disclaimer .eyebrow,
+.disclaimer .actions {
+  text-align: center;
+}
+
+.disclaimer p {
+  color: #e1d7c8;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 25px;
+  background: #c8a66c;
+  color: #19120b;
+  border: 1px solid var(--gold);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: .25s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ead1a5;
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background: rgba(20,15,11,.92);
+  color: var(--gold);
+}
+
+.actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-heading {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  padding: 28px 20px;
+  margin-bottom: 30px;
+  background: rgba(18,13,9,.86);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.page-heading p {
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+.newspaper {
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
+  background: #18130e;
+  border: 1px solid var(--gold);
+  box-shadow: 0 15px 60px #0009;
+}
+
+.newspaper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 950px;
+}
+
+.menu-card {
+  min-height: 190px;
+  padding: 30px 20px;
+  color: var(--cream);
+  text-align: left;
+  background: rgba(23,17,12,.87);
+  border: 1px solid #8c7049;
+  box-shadow: 0 10px 30px #0005;
+  transition: .25s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  border-color: #e4c58f;
+  background: rgba(46,32,20,.96);
+}
+
+.menu-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.menu-card h2 {
+  font-size: 26px;
+  margin: 20px 0 10px;
+}
+
+.menu-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.menu-open {
+  display: block;
+  color: var(--gold);
+  margin-top: 22px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.file-card {
+  background: rgba(22,16,12,.95);
+  border: 1px solid #816847;
+  padding: 18px;
+  box-shadow: 0 12px 30px #0006;
+}
+
+.file-card h3 {
+  font-size: 19px;
+  font-weight: normal;
+  margin: 8px 0 18px;
+}
+
+.file-number {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+.image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: #100e0c;
+  border: 0;
+  cursor: zoom-in;
+}
+
+.image-button img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: contain;
+}
+
+.file-image + .file-image {
+  margin-top: 22px;
+  border-top: 1px solid #66543a;
+  padding-top: 20px;
+}
+
+.file-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: var(--gold);
+  padding: 5px 0;
+  font-family: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.image-error {
+  padding: 20px;
+  color: #e7b4a1;
+  font-size: 14px;
+}
+
+.footer-note {
+  color: #c9bba6;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 35px;
+  padding: 12px;
+  background: #15100ccc;
+}
+
+/* FULL RESOLUTION DOCUMENT VIEWER */
+
+#viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #080706;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+#viewer.open {
+  display: flex;
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #201811;
+  border-bottom: 1px solid #8c7049;
+}
+
+.viewer-toolbar button,
+.viewer-toolbar a {
+  padding: 10px 14px;
+  border: 1px solid #8c7049;
+  background: #17110d;
+  color: var(--cream);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+#viewer-title {
+  flex-basis: 100%;
+  text-align: center;
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#zoom-level {
+  color: var(--gold);
+  font-size: 13px;
+  min-width: 45px;
+  text-align: center;
+}
+
+#viewer-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 15px;
+  cursor: grab;
+  touch-action: pan-x pan-y;
+}
+
+#viewer-scroll.dragging {
+  cursor: grabbing;
+}
+
+#viewer-image {
+  display: block;
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* SOUNDTRACK */
+
+#music-box {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+  width: 220px;
+  background: rgba(20,15,11,.97);
+  border: 1px solid #8c7049;
+  box-shadow: 0 5px 25px #0008;
+}
+
+.music-label {
+  padding: 10px;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#music-player {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+#music-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.music-controls {
+  display: flex;
+}
+
+.music-controls button {
+  flex: 1;
+  padding: 10px;
+  background: #211810;
+  color: var(--cream);
+  border: 0;
+  font-size: 12px;
+}
+
+#music-box.collapsed {
+  width: auto;
+}
+
+#music-box.collapsed #music-player,
+#music-box.collapsed .music-label,
+#music-box.collapsed #music-toggle {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .page {
+    padding: 25px 14px 110px;
+  }
+
+  .panel {
+    padding: 28px 20px;
+  }
+
+  .menu-grid,
+  .files-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-card {
+    min-height: 155px;
+  }
+
+  .image-button img {
+    height: auto;
+    max-height: 440px;
+  }
+
+  .eyebrow {
+    letter-spacing: 3px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 14px 18px;
+  }
+
+  #music-box {
+    right: 10px;
+    bottom: 10px;
+    width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DISCLAIMER -->
+
+<section id="disclaimer" class="page active centered">
+  <div class="panel disclaimer">
+    <div class="eyebrow">Before you proceed</div>
+
+    <h1>DISCLAIMER</h1>
+    <div class="gold-line"></div>
+
+    <p>
+      This murder mystery is entirely fictional and was created for entertainment purposes only. Certain laws, legal provisions, financial documents, official records, and procedures have been invented or modified to fit the storyline. They should NOT be considered accurate representations of Lebanese law or real-life practices.
+    </p>
+
+    <p>
+      Any inaccuracies or deviations from reality are intentional and were made solely for the purposes of the game.
+    </p>
+
+    <div class="actions">
+      <button class="btn" onclick="begin()">
+        I Understand — Proceed
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSPAPER -->
+
+<section id="newspaper" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">A case awaits</div>
+    <h1>The Murder of<br>Joseph Maroun</h1>
+    <div class="gold-line"></div>
+    <p>Every investigation begins somewhere.</p>
+  </div>
+
+  <div class="newspaper">
+    <img
+      src="Picture1.png"
+      alt="Opening newspaper article"
+      onclick="openViewer('Picture1.png','Newspaper Article')"
+    >
+  </div>
+
+  <div class="actions">
+    <button class="btn secondary"
+      onclick="openViewer('Picture1.png','Newspaper Article')">
+      Enlarge Newspaper
+    </button>
+
+    <button class="btn"
+      onclick="showPage('menu')">
+      Next — Begin Investigation
+    </button>
+  </div>
+</section>
+
+<!-- MAIN INVESTIGATION MENU -->
+
+<section id="menu" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Confidential case archive</div>
+    <h1>The Investigation</h1>
+    <div class="gold-line"></div>
+    <p>Examine the documents. Question the accounts.<br>
+    Draw your own conclusions.</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <button class="menu-card"
+      onclick="showPage('initial')">
+      <span class="menu-number">FILE 01</span>
+      <h2>Initial Investigation</h2>
+      <p>Crime scene, police findings and autopsy.</p>
+      <span class="menu-open">ACCESS FILE →</span>
+    </button>
+
+    <button class="menu-card"
+      onclick="showPage('suspects')">
+      <span class="menu-number">FILE 02</span>
+      <h2>Suspect Profiles</h2>
+      <p>Personal records and background information.</p>
+      <span class="menu-open">ACCESS FILE →</span>
+    </button>
+
+    <button class="menu-card"
+      onclick="showPage('interviews')">
+      <span class="menu-number">FILE 03</span>
+      <h2>Interviews</h2>
+      <p>Statements collected during the investigation.</p>
+      <span class="menu-open">ACCESS FILE →</span>
+    </button>
+
+    <button class="menu-card"
+      onclick="showPage('evidence')">
+      <span class="menu-number">FILE 04</span>
+      <h2>Evidence</h2>
+      <p>Photographs, documents and collected exhibits.</p>
+      <span class="menu-open">ACCESS FILE →</span>
+    </button>
+
+  </div>
+
+  <div class="actions">
+    <button class="btn secondary"
+      onclick="showPage('newspaper')">
+      ← Back to Newspaper
+    </button>
+  </div>
+
+  <div class="footer-note">
+    FICTIONAL CASE • CONFIDENTIAL ARCHIVE
+  </div>
+</section>
+
+<!-- INVESTIGATION SECTIONS -->
+
+<section id="initial" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Case file 01</div>
+    <h1>Initial Investigation</h1>
+    <p>Crime scene, police findings and autopsy.</p>
+  </div>
+  <div class="actions" style="margin:0 0 25px">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+  <div id="initial-files" class="files-grid"></div>
+  <div class="actions">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+</section>
+
+<section id="suspects" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Case file 02</div>
+    <h1>Suspect Profiles</h1>
+    <p>Individuals connected to the case.</p>
+  </div>
+  <div class="actions" style="margin:0 0 25px">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+  <div id="suspects-files" class="files-grid"></div>
+  <div class="actions">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+</section>
+
+<section id="interviews" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Case file 03</div>
+    <h1>Interviews</h1>
+    <p>Recorded statements and interview transcripts.</p>
+  </div>
+  <div class="actions" style="margin:0 0 25px">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+  <div id="interviews-files" class="files-grid"></div>
+  <div class="actions">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+</section>
+
+<section id="evidence" class="page">
+  <div class="page-heading">
+    <div class="eyebrow">Case file 04</div>
+    <h1>Evidence Archive</h1>
+    <p>Collected documents, photographs and exhibits.</p>
+  </div>
+  <div class="actions" style="margin:0 0 25px">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+  <div id="evidence-files" class="files-grid"></div>
+  <div class="actions">
+    <button class="btn secondary" onclick="showPage('menu')">
+      ← Back to Investigation
+    </button>
+  </div>
+</section>
+
+<!-- IMAGE VIEWER -->
+
+<div id="viewer" role="dialog"
+  aria-modal="true" aria-label="Document viewer">
+
+  <div class="viewer-toolbar">
+    <div id="viewer-title"></div>
+    <button onclick="changeZoom(-.25)">−</button>
+    <span id="zoom-level">100%</span>
+    <button onclick="changeZoom(.25)">+</button>
+    <button onclick="fitImage()">Fit</button>
+    <button onclick="originalSize()">Original Size</button>
+    <a id="original-link" target="_blank"
+      rel="noopener noreferrer">Open Original ↗</a>
+    <button id="close-viewer" onclick="closeViewer()">✕ Close</button>
+  </div>
+
+  <div id="viewer-scroll">
+    <img id="viewer-image" alt="Enlarged case document">
+  </div>
+</div>
+
+<!-- SOUNDTRACK -->
+
+<div id="music-box">
+  <div class="music-label">INVESTIGATION SOUNDTRACK</div>
+  <div id="music-player"></div>
+  <div class="music-controls">
+    <button id="music-toggle" onclick="toggleMusic()">
+      Pause / Play
+    </button>
+    <button id="music-minimize" onclick="minimizeMusic()">
+      Minimize
+    </button>
+  </div>
+</div>
+
+<script>
+
+/* ALL 31 ORIGINAL IMAGES */
+
+const files = {
+
+  initial: [
+    ["Crime Scene", "Picture3.jpg"],
+    ["Police Findings", "Picture4.jpg"],
+    ["Autopsy Report", "Picture2.png"]
+  ],
+
+  suspects: [
+    ["France", "Picture5.png"],
+    ["Doris", "Picture6.png"],
+    ["Perla", "Picture7.png"],
+    ["Bernard", "Picture8.png"],
+    ["Tina", "Picture9.png"]
+  ],
+
+  interviews: [
+    ["Interview — France", "Picture10.jpg"],
+    ["Interview — Doris", "Picture11.png"],
+    ["Interview — Perla", "Picture12.png"],
+    ["Interview — Bernard", "Picture13.png"],
+    ["Interview — Tina", "Picture14.png", "Picture15.png"]
+  ],
+
+  evidence: [
+    ["Map", "Picture16.jpg"],
+    ["Electricity Bill", "Picture17.png"],
+    ["Spinneys Receipt", "Picture18.png"],
+    ["Photograph", "Picture19.jpg"],
+    ["Mortgage Notice", "Picture20.png"],
+    ["Legal Provision", "Picture21.jpg"],
+    ["Property Share Sale Agreement", "Picture22.png"],
+    ["Casino Account Statement", "Picture23.png"],
+    ["WhatsApp Conversation", "Picture24.png"],
+    ["Traffic Violation Notice", "Picture25.png"],
+    ["Family Brunch — Photograph 1", "Picture26.jpg"],
+    ["Family Brunch — Photograph 2", "Picture27.jpg"],
+    ["Agricultural Supplies Receipt", "Picture28.jpg"],
+    ["Agricultural Storage Room", "Picture29.jpg"],
+    ["WhatsApp Conversation", "Picture30.jpg", "Picture31.png"]
+  ]
+};
+
+/* CREATE THE DOCUMENT CARDS */
+
+Object.entries(files).forEach(([section, entries]) => {
+
+  const container = document.getElementById(section + "-files");
+
+  entries.forEach(([title, ...images], index) => {
+
+    const card = document.createElement("article");
+    card.className = "file-card";
+
+    const number = document.createElement("div");
+    number.className = "file-number";
+    number.textContent =
+      "DOCUMENT " + String(index + 1).padStart(2, "0");
+
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+
+    card.append(number, heading);
+
+    images.forEach((src, pageIndex) => {
+
+      const label = images.length > 1
+        ? title + " — Page " + (pageIndex + 1)
+        : title;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "file-image";
+
+      const imageButton = document.createElement("button");
+      imageButton.className = "image-button";
+      imageButton.setAttribute("aria-label", "Enlarge " + label);
+
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = label;
+      img.loading = "lazy";
+      img.decoding = "async";
+
+      img.onerror = function() {
+        const error = document.createElement("div");
+        error.className = "image-error";
+        error.textContent =
+          "File unavailable: " + src +
+          ". Please check its filename.";
+        imageButton.replaceWith(error);
+      };
+
+      imageButton.appendChild(img);
+      imageButton.onclick = () => openViewer(src, label);
+
+      const controls = document.createElement("div");
+      controls.className = "file-controls";
+
+      const enlarge = document.createElement("button");
+      enlarge.className = "text-link";
+      enlarge.textContent = images.length > 1
+        ? "Enlarge Page " + (pageIndex + 1)
+        : "Enlarge Document";
+      enlarge.onclick = () => openViewer(src, label);
+
+      const original = document.createElement("a");
+      original.className = "text-link";
+      original.href = src;
+      original.target = "_blank";
+      original.rel = "noopener noreferrer";
+      original.textContent = "Open Original ↗";
+
+      controls.append(enlarge, original);
+      wrapper.append(imageButton, controls);
+      card.appendChild(wrapper);
+
+    });
+
+    container.appendChild(card);
+
+  });
+
+});
+
+/* NAVIGATION */
+
+let accepted = false;
+
+function showPage(id, updateHistory = true) {
+
+  if (!accepted && id !== "disclaimer") {
+    id = "disclaimer";
+  }
+
+  const target = document.getElementById(id);
+
+  if (!target || !target.classList.contains("page")) {
+    return;
+  }
+
+  closeViewer();
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  target.classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+  if (updateHistory) {
+    history.pushState({ page: id }, "", "#" + id);
+  }
+}
+
+history.replaceState({ page: "disclaimer" }, "", location.pathname);
+
+window.addEventListener("popstate", event => {
+  showPage(event.state?.page || "disclaimer", false);
+});
+
+function begin() {
+  accepted = true;
+  showPage("newspaper");
+  startMusic();
+}
+
+/* FULL RESOLUTION IMAGE VIEWER */
+
+const viewer = document.getElementById("viewer");
+const viewerImage = document.getElementById("viewer-image");
+const viewerScroll = document.getElementById("viewer-scroll");
+
+let zoom = 1;
+let fitWidth = 0;
+let previousFocus = null;
+
+function openViewer(src, title) {
+
+  previousFocus = document.activeElement;
+
+  document.getElementById("viewer-title").textContent = title;
+  document.getElementById("original-link").href = src;
+
+  viewer.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  viewerImage.onload = fitImage;
+  viewerImage.src = src;
+
+  if (viewerImage.complete && viewerImage.naturalWidth) {
+    fitImage();
+  }
+
+  document.getElementById("close-viewer").focus();
+}
+
+function fitImage() {
+
+  if (!viewerImage.naturalWidth) return;
+
+  fitWidth = Math.min(
+    viewerScroll.clientWidth - 30,
+    viewerImage.naturalWidth
+  );
+
+  zoom = 1;
+  applyZoom();
+
+  viewerScroll.scrollTop = 0;
+  viewerScroll.scrollLeft = 0;
+}
+
+function changeZoom(amount) {
+  zoom = Math.min(6, Math.max(.25, zoom + amount));
+  applyZoom();
+}
+
+function originalSize() {
+  if (!fitWidth || !viewerImage.naturalWidth) return;
+  zoom = viewerImage.naturalWidth / fitWidth;
+  applyZoom();
+}
+
+function applyZoom() {
+  viewerImage.style.width = (fitWidth * zoom) + "px";
+
+  const scale = viewerImage.naturalWidth
+    ? Math.round(fitWidth * zoom /
+        viewerImage.naturalWidth * 100)
+    : 100;
+
+  document.getElementById("zoom-level").textContent =
+    scale + "%";
+}
+
+function closeViewer() {
+
+  if (!viewer.classList.contains("open")) return;
+
+  viewer.classList.remove("open");
+  document.body.style.overflow = "";
+
+  if (previousFocus) {
+    previousFocus.focus({ preventScroll: true });
+  }
+}
+
+document.addEventListener("keydown", event => {
+
+  if (!viewer.classList.contains("open")) return;
+
+  if (event.key === "Escape") closeViewer();
+  if (event.key === "+" || event.key === "=") changeZoom(.25);
+  if (event.key === "-") changeZoom(-.25);
+
+});
+
+/* DRAG TO EXPLORE ENLARGED DOCUMENTS */
+
+let dragging = false;
+let startX, startY, scrollLeft, scrollTop;
+
+viewerScroll.addEventListener("mousedown", event => {
+
+  if (event.button !== 0) return;
+
+  dragging = true;
+  viewerScroll.classList.add("dragging");
+
+  startX = event.clientX;
+  startY = event.clientY;
+  scrollLeft = viewerScroll.scrollLeft;
+  scrollTop = viewerScroll.scrollTop;
+
+  event.preventDefault();
+
+});
+
+window.addEventListener("mousemove", event => {
+
+  if (!dragging) return;
+
+  viewerScroll.scrollLeft =
+    scrollLeft - (event.clientX - startX);
+
+  viewerScroll.scrollTop =
+    scrollTop - (event.clientY - startY);
+
+});
+
+window.addEventListener("mouseup", () => {
+  dragging = false;
+  viewerScroll.classList.remove("dragging");
+});
+
+/* YOUTUBE SOUNDTRACK — LOOP ENABLED */
+
+let player;
+let musicStarted = false;
+let apiReady = false;
+
+const musicBox = document.getElementById("music-box");
+
+function onYouTubeIframeAPIReady() {
+  apiReady = true;
+  if (musicStarted) createPlayer();
+}
+
+function startMusic() {
+
+  musicBox.style.display = "block";
+
+  if (musicStarted) return;
+
+  musicStarted = true;
+
+  if (apiReady) createPlayer();
+}
+
+function createPlayer() {
+
+  if (player || !window.YT || !YT.Player) return;
+
+  player = new YT.Player("music-player", {
+
+    videoId: "ZkcnW1ZzHJI",
+
+    playerVars: {
+      autoplay: 1,
+      loop: 1,
+      playlist: "ZkcnW1ZzHJI",
+      playsinline: 1,
+      controls: 1,
+      rel: 0,
+      origin: location.origin
+    },
+
+    events: {
+
+      onReady: function(event) {
+        event.target.setVolume(35);
+        event.target.playVideo();
+      },
+
+      onStateChange: function(event) {
+
+        if (event.data === YT.PlayerState.ENDED) {
+          event.target.seekTo(0, true);
+          event.target.playVideo();
+        }
+
+        document.getElementById("music-toggle").textContent =
+          event.data === YT.PlayerState.PLAYING
+          ? "Pause Music"
+          : "Play Music";
+      },
+
+      onError: function() {
+        document.getElementById("music-toggle").textContent =
+          "Open Soundtrack";
+      }
+    }
+  });
+}
+
+function toggleMusic() {
+
+  if (!player || typeof player.getPlayerState !== "function") {
+    window.open(
+      "https://youtu.be/ZkcnW1ZzHJI",
+      "_blank",
+      "noopener"
+    );
+    return;
+  }
+
+  if (
+    document.getElementById("music-toggle").textContent
+      === "Open Soundtrack"
+  ) {
+    window.open(
+      "https://youtu.be/ZkcnW1ZzHJI",
+      "_blank",
+      "noopener"
+    );
+    return;
+  }
+
+  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+    player.pauseVideo();
+  } else {
+    player.playVideo();
+  }
+}
+
+function minimizeMusic() {
+
+  const collapsed = musicBox.classList.toggle("collapsed");
+
+  document.getElementById("music-minimize").textContent =
+    collapsed ? "♫ Soundtrack" : "Minimize";
+
+  // Pause when hiding the video player.
+  if (collapsed && player &&
+      typeof player.pauseVideo === "function") {
+    player.pauseVideo();
+  }
+}
+
+const youtubeScript = document.createElement("script");
+youtubeScript.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(youtubeScript);
+
+</script>
+
+</body>
+</html>
